@@ -1,4 +1,4 @@
-# COMP0035 Coursework 1 - (Your Name)
+# COMP0035 Coursework 1 - (Chen123-hongtai)
 
 ## Overview
 This repository contains code to:
