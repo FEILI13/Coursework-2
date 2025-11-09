@@ -48,8 +48,8 @@ def parse_dataset(df):
         # Build full path using stack
         path_parts = [
             s["name"]
-            for l, s in [(s["level"], s) for s in series_meta]
-            if l < level and s["series_id"] in parent_stack.values()
+            for indent_level, s in [(s["level"], s) for s in series_meta]
+            if indent_level < level and s["series_id"] in parent_stack.values()
         ]
         path_parts.append(name)
         full_path = " > ".join(path_parts)
@@ -65,8 +65,8 @@ def parse_dataset(df):
 
         parent_stack[level] = series_id
         # remove deeper
-        for l in [x for x in parent_stack.keys() if x > level]:
-            del parent_stack[l]
+        for indent_level in [x for x in parent_stack.keys() if x > level]:
+            del parent_stack[indent_level]
 
         # Monthly values
         for m in months:

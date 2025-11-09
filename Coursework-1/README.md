@@ -14,3 +14,9 @@ This repository contains code to:
    python -m venv .venv
    .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
+
+Run these four scripts in order:
+1."parse_international_visitors.py"
+2."explore_international_visitors.py"
+3."prepare_views.py"
+4."create_db.py"

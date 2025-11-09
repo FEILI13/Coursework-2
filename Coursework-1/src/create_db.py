@@ -20,9 +20,14 @@ def main():
     conn = sqlite3.connect(DB)
     meta.to_sql("series_master", conn, if_exists="replace", index=False)
     obs.to_sql("observations", conn, if_exists="replace", index=False)
+
     conn.execute(
-        "CREATE INDEX IF NOT EXISTS idx_obs_series_date ON observations(series_id, date);"
+        """
+        CREATE INDEX IF NOT EXISTS idx_obs_series_date
+        ON observations(series_id, date);
+        """
     )
+
     conn.commit()
     conn.close()
 
