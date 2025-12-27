@@ -1,9 +1,14 @@
 [project]
-name = "comp0035-coursework1"
-version = "0.1.0"
-description = "International Visitor Arrivals data pipeline"
+name = "comp0035-coursework2"
+version = "0.2.0"
+description = "Tourism time-series analysis ORM and tests"
 authors = [{ name = "Chen123-hongtai" }]
-dependencies = ["pandas", "numpy", "matplotlib"]
+dependencies = [
+    "pandas>=2.0",
+    "sqlmodel>=0.0.16",
+    "SQLAlchemy>=2.0",
+]
+requires-python = ">=3.11"
 
 [tool.setuptools.packages.find]
 where = ["src"]
