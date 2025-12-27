@@ -1,22 +1,29 @@
-# COMP0035 Coursework 1 - (Chen123-hongtai)
+# COMP0035 Coursework 2 – Tourism Time-Series ORM
 
-## Overview
-This repository contains code to:
-- explore an assigned dataset (`src/data_explore.py`)
-- prepare the data for three example questions (`src/data_prep.py`)
-- create an SQLite database from prepared CSVs (`src/create_db.py`)
+This repository contains a lightweight Python package for Section 2 of COMP0035 Coursework 2.  
+It focuses on SQLModel ORM usage, tourism time-series analytics, and high-quality automated tests.
 
-## How to run (Windows 11, VS Code)
-1. Clone your GitHub Classroom repo.
-2. Put the dataset file into `data/dataset.csv` (or `dataset.xlsx`).
-3. Create and activate virtualenv:
-   ```powershell
-   python -m venv .venv
-   .venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
+## Features
+- SQLModel ORM models for `series_master` and `observations` tables.
+- Analytical helpers:
+  - `yoy_change` – year-on-year percentage change for a given series/month.
+  - `moving_average` – rolling mean for a series (configurable window).
+  - `missing_rate` – proportion of NULL values over a date range.
+- Pytest suite (12 tests) covering unit and integration scenarios, boundary cases, and NULL handling.
 
-Run these four scripts in order:
-1."parse_international_visitors.py"
-2."explore_international_visitors.py"
-3."prepare_views.py"
-4."create_db.py"
+## Setup
+```bash
+python -m venv .venv
+source .venv/bin/activate  # or .venv\\Scripts\\activate on Windows
+pip install -r requirements.txt
+pip install -e .
+```
+
+## Running Tests
+```bash
+python -m pytest
+```
+
+## Package Layout
+- `src/tourism_timeseries/` – ORM models and analytics helpers.
+- `tests/` – Pytest suite with GIVEN/WHEN/THEN docstrings.
